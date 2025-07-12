@@ -19,8 +19,7 @@ This uses a **DAX variable** containing HTML and CSS, rendered with an HTML View
 
 1️⃣ Add a new **DAX measure** to your Power BI data model, for example:
 ```DAX
-ResultSlider =
-"
+
 ResultSlider = 
 "
 <style>
@@ -137,6 +136,4 @@ ResultSlider =
     </div>
   </div>
 </div>
-"
-
 "
