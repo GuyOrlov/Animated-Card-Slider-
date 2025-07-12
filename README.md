@@ -1,45 +1,4 @@
-# Animated Card Slider for Power BI
-
-This repository contains my test files for recreating an animated card slider inspired by [Pavan Yuvan's CodePen](https://codepen.io/Pavan_Yuvan/pen/vXepGe).
-
----
-
-## 🗂️ Project Structure
-
-1️⃣ **Step 1 — HTML + JS Test**  
-- `slider-test.html`  
-  ✅ This file uses the original HTML, CSS, and JavaScript to test the slider effect in the browser.  
-  ✅ Helps me understand how the slider works and what animations are handled by JS.
-
-2️⃣ **Step 2 — Power BI DAX Version**  
-- `slider-powerbi-dax.txt` (or directly as a DAX measure in your `.pbix`)  
-  ✅ In this step, I removed the JavaScript parts to adapt the design to work inside Power BI.  
-  ✅ Rebuilt the slider’s structure and styling using only HTML and CSS, rendered through a DAX measure or HTML Viewer visual.
-
----
-
-## 💡 Purpose
-
-The goal of this project is to:
-- Test how far a dynamic slider effect can be recreated in Power BI without JavaScript.
-- Learn how to convert web components into Power BI-friendly HTML/CSS.
-- Improve my skills with DAX-generated HTML for custom visuals.
-
----
-
-## ⚡ Try It Yourself!
-
-1. Clone this repo  
-2. Open `slider-test.html` in your browser to see the original slider effect.
-3. Use the example below (`slider-powerbi-dax.txt`) as your template for a DAX measure in Power BI.
-4. Add the measure to an HTML Viewer visual and resize as needed.
-
----
-
-## 📄 `slider-powerbi-dax.txt` Example
-
-```DAX
-ResultSlider = 
+ResultSlider2 = 
 "
 <style>
   :root {
@@ -99,7 +58,11 @@ ResultSlider =
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
     transition: top 0.8s cubic-bezier(.3,-0.91,.6,1.52);
+  }
+  .result-card svg {
+    margin: 10px 0;
   }
   input#tab1:checked ~ .results-preview .card1,
   input#tab2:checked ~ .results-preview .card2,
@@ -132,24 +95,42 @@ ResultSlider =
   <input type='radio' name='tab' id='tab3'>
 
   <div class='results-list'>
-    <label for='tab1'>Result One</label>
-    <label for='tab2'>Result Two</label>
-    <label for='tab3'>Result Three</label>
+    <label for='tab1'>Revenue</label>
+    <label for='tab2'>Customer</label>
+    <label for='tab3'>Conversion</label>
   </div>
 
   <div class='results-preview'>
     <div class='result-card card1'>
-      <h3>Result One</h3>
+      <h3>Revenue Report</h3>
+      <p style='margin: 5px 0;'>Q1 Revenue: £250,000</p>
+      <svg width='50' height='50' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <circle cx='12' cy='12' r='10' stroke='#29323F' stroke-width='2' fill='none'/>
+        <path d='M8 12h8' stroke='#29323F' stroke-width='2'/>
+        <path d='M12 8v8' stroke='#29323F' stroke-width='2'/>
+      </svg>
       <div class='line'></div>
       <div class='line'></div>
     </div>
+
     <div class='result-card card2'>
-      <h3>Result Two</h3>
+      <h3>Customer Profile</h3>
+      <p style='margin: 5px 0;'>Active Users: 1,200</p>
+      <svg width='50' height='50' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <circle cx='12' cy='8' r='4' stroke='#29323F' stroke-width='2' fill='none'/>
+        <path d='M4 20c0-4 4-7 8-7s8 3 8 7' stroke='#29323F' stroke-width='2' fill='none'/>
+      </svg>
       <div class='line'></div>
       <div class='line'></div>
     </div>
+
     <div class='result-card card3'>
-      <h3>Result Three</h3>
+      <h3>Conversion Rate</h3>
+      <p style='margin: 5px 0;'>Current Rate: 8.5%</p>
+      <svg width='50' height='50' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M3 17l6-6 4 4 8-8' stroke='#29323F' stroke-width='2' fill='none'/>
+        <path d='M14 7h7v7' stroke='#29323F' stroke-width='2' fill='none'/>
+      </svg>
       <div class='line'></div>
       <div class='line'></div>
     </div>
