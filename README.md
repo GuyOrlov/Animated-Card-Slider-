@@ -1,25 +1,44 @@
-# Result Slider — HTML/CSS Card Slider for Power BI
+# Animated Card Slider for Power BI
 
-This project shows how I recreated an animated card slider inspired by [Pavan Yuvan’s CodePen](https://codepen.io/Pavan_Yuvan/pen/vXepGe) to test in Power BI using HTML and CSS only — no JavaScript!
-
----
-
-## 🎯 What’s Inside
-
-✅ `slider-test.html`  
-A simple file to test the original slider effect using HTML, CSS, and JavaScript in the browser.
-
-✅ `ResultSlider` (DAX measure example)  
-A fully static version of the slider, adapted to run in Power BI by removing all JavaScript.  
-This uses a **DAX variable** containing HTML and CSS, rendered with an HTML Viewer custom visual.
+This repository contains my test files for recreating an animated card slider inspired by [Pavan Yuvan's CodePen](https://codepen.io/Pavan_Yuvan/pen/vXepGe).
 
 ---
 
-## ⚙️ How to Use in Power BI
+## 🗂️ Project Structure
 
-1️⃣ Add a new **DAX measure** to your Power BI data model, for example:
+1️⃣ **Step 1 — HTML + JS Test**  
+- `slider-test.html`  
+  ✅ This file uses the original HTML, CSS, and JavaScript to test the slider effect in the browser.  
+  ✅ Helps me understand how the slider works and what animations are handled by JS.
+
+2️⃣ **Step 2 — Power BI DAX Version**  
+- `slider-powerbi-dax.txt` (or directly as a DAX measure in your `.pbix`)  
+  ✅ In this step, I removed the JavaScript parts to adapt the design to work inside Power BI.  
+  ✅ Rebuilt the slider’s structure and styling using only HTML and CSS, rendered through a DAX measure or HTML Viewer visual.
+
+---
+
+## 💡 Purpose
+
+The goal of this project is to:
+- Test how far a dynamic slider effect can be recreated in Power BI without JavaScript.
+- Learn how to convert web components into Power BI-friendly HTML/CSS.
+- Improve my skills with DAX-generated HTML for custom visuals.
+
+---
+
+## ⚡ Try It Yourself!
+
+1. Clone this repo  
+2. Open `slider-test.html` in your browser to see the original slider effect.
+3. Use the example below (`slider-powerbi-dax.txt`) as your template for a DAX measure in Power BI.
+4. Add the measure to an HTML Viewer visual and resize as needed.
+
+---
+
+## 📄 `slider-powerbi-dax.txt` Example
+
 ```DAX
-
 ResultSlider = 
 "
 <style>
